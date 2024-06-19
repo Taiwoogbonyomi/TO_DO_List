@@ -40,6 +40,23 @@ def display_instructions():
     """)
 
 
+def load_tasks():
+    """
+    Load tasks from the spreadsheet.
+    """
+    global tasks
+    tasks = []
+    sheet = spreadsheet.sheet1
+    rows = sheet.get_all_records()
+    for row in rows:
+        task = {
+            "description": row["Description"],
+            "due_date": row["Due Date"],
+            "due_time": row["Due Time"]
+        }
+        tasks.append(task)
+    print(f"Loaded {len(tasks)} tasks from the file.")
+
 def display_tasks():
     """
     This function displays the tasks added by the user
@@ -53,6 +70,18 @@ def display_tasks():
         for index, task in enumerate(tasks, start=1):
             print(f"{index}. {task['description']} - Due: {task['due_date']} {task['due_time']}")
 
+
+def save_tasks():
+    """
+    Save tasks to the spreadsheet.
+    """
+    print(f"Saving {len(tasks)} tasks to the file.")
+    sheet = spreadsheet.sheet1
+    sheet.clear()
+    sheet.append_row(["Description", "Due Date", "Due Time"])
+    for task in tasks:
+        sheet.append_row([task["description"], task["due_date"], task["due_time"]])
+    print("Tasks saved successfully.")
 
 def add_task():
     """
