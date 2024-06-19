@@ -40,7 +40,18 @@ def display_instructions():
     """)
 
 
-
+def display_tasks():
+    """
+    This function displays the tasks added by the user
+    to the to-do list. The due date and time is also displayed 
+    which shows the user the tasks in order of their priority.
+    """
+    if not tasks:
+        print("\U0001F4ED Your to-do list is empty.")
+    else:
+        print("\U0001F4CB Your To-Do List:")
+        for index, task in enumerate(tasks, start=1):
+            print(f"{index}. {task['description']} - Due: {task['due_date']} {task['due_time']}")
 
 
 
