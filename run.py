@@ -54,6 +54,41 @@ def display_tasks():
             print(f"{index}. {task['description']} - Due: {task['due_date']} {task['due_time']}")
 
 
+def add_task():
+    """
+    This function allows a user to add a task to the to-do list,
+    it also ensures that the due date and time is while ensuring 
+    that the due date cannot be in the past.
+    """
+    description = input("Enter task description: ").strip()
+    if not description:
+        print("\U0000274C Task description cannot be empty. Please enter a valid description.")
+        return
+
+    while True:
+        due_date = input("Enter due date (YYYY-MM-DD): ")
+        due_time = input("Enter due time (HH:MM): ")
+        try:
+            due_date_obj = datetime.datetime.strptime(due_date, "%Y-%m-%d").date()
+            due_time_obj = datetime.datetime.strptime(due_time, "%H:%M").time()
+            if due_date_obj < datetime.date.today():
+                print("\U0000274C Due date cannot be in the past. Please enter a valid date.")
+                continue
+            break
+        except ValueError:
+            print("\U0000274C Invalid date or time format. Please try again.")
+
+    task = {
+        "description": description,
+        "due_date": due_date,
+        "due_time": due_time
+    }
+
+    tasks.append(task)
+    print(f"\U00002705 Task '{description}' added to your to-do list.")
+    save_tasks()
+
+
 
 
 def main():
