@@ -118,6 +118,32 @@ def add_task():
     save_tasks()
 
 
+def remove_task():
+    """
+    Function to remove a task from the to-do list,
+    This function provides the user with a prompt
+    text to confirm if the task should be removed.
+    """
+    display_tasks()
+    if tasks:
+        try:
+            index = int(input("Enter the number of the task to remove: ")) - 1
+            if 0 <= index < len(tasks):
+                removed_task = tasks[index]
+                confirm = input(f"Are you sure you want to remove the task '{removed_task['description']}'? (yes/no): ").lower()
+                if confirm == 'yes':
+                    tasks.pop(index)
+                    print(f"\U0001F4ED Task '{removed_task['description']}' removed successfully.")
+                    save_tasks()
+                else:
+                    print("\U0000274C Task removal cancelled.")
+            else:
+                print("\U0000274C Invalid input.")
+        except ValueError:
+            print("\U0000274C Invalid input. Please enter a number.")
+    else:
+        print("\U0001F4ED Your to-do list is already empty.")
+
 
 
 def main():
