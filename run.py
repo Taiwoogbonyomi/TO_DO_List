@@ -15,7 +15,7 @@ SCOPE = [
 CREDS = Credentials.from_service_account_file("creds.json")
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('To-Do List')
+spreadsheet = GSPREAD_CLIENT.open('To-Do List')
 
 
 # This is an empty list to store tasks
@@ -57,6 +57,22 @@ def load_tasks():
         tasks.append(task)
     print(f"Loaded {len(tasks)} tasks from the file.")
 
+
+def save_tasks():
+    """
+    Save tasks to the spreadsheet.
+    """
+    print(f"Saving {len(tasks)} tasks to the file.")
+    sheet = spreadsheet.sheet1
+    sheet.clear()
+    sheet.append_row(["Description", "Due Date", "Due Time"])
+    for task in tasks:
+        sheet.append_row([task["description"], task["due_date"], task["due_time"]])
+    print("Tasks saved successfully.")
+
+
+
+
 def display_tasks():
     """
     This function displays the tasks added by the user
@@ -70,18 +86,6 @@ def display_tasks():
         for index, task in enumerate(tasks, start=1):
             print(f"{index}. {task['description']} - Due: {task['due_date']} {task['due_time']}")
 
-
-def save_tasks():
-    """
-    Save tasks to the spreadsheet.
-    """
-    print(f"Saving {len(tasks)} tasks to the file.")
-    sheet = spreadsheet.sheet1
-    sheet.clear()
-    sheet.append_row(["Description", "Due Date", "Due Time"])
-    for task in tasks:
-        sheet.append_row([task["description"], task["due_date"], task["due_time"]])
-    print("Tasks saved successfully.")
 
 def add_task():
     """
@@ -143,6 +147,17 @@ def remove_task():
             print("\U0000274C Invalid input. Please enter a number.")
     else:
         print("\U0001F4ED Your to-do list is already empty.")
+
+
+def verify_saved_tasks():
+    """
+    Verify and print tasks saved in the spreadsheet.
+    """
+    sheet = spreadsheet.sheet1
+    rows = sheet.get_all_records()
+    print("Saved tasks in the file:")
+    for row in rows:
+        print(f"Description: {row['Description']}, Due Date: {row['Due Date']}, Due Time: {row['Due Time']}")
 
 
 
