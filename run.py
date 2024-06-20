@@ -28,6 +28,7 @@ def display_instructions():
     function. 
 
     """
+    print("\U0001F4CB Welcome to the to-do list application \U0001F4CB")
     print("""
     ===== To-Do List Instructions =====
     You can manage your tasks with the following options:
