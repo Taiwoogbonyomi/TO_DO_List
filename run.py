@@ -1,4 +1,4 @@
-"""Import relevant modules for the application"""
+"""Import necessary modules for the application"""
 
 import datetime
 import gspread
@@ -18,14 +18,13 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 spreadsheet = GSPREAD_CLIENT.open('To-Do List')
 
 
-# This is an empty list to store tasks
+# This is an empty list to store tasks locally
 tasks = []
 
 def display_instructions():
     """
-    Function to print out the to-do list instructions and menu,
-    then wait for the user input before calling the appropriate
-    function. 
+    Function to print out the instructions and 
+    menu options for the user
 
     """
     
@@ -43,7 +42,8 @@ def display_instructions():
 
 def load_tasks():
     """
-    This function load tasks from the spreadsheet.
+    This function load tasks from the google sheet
+    and updates the local tasks list.
     """
     global tasks
     tasks = []
@@ -61,7 +61,7 @@ def load_tasks():
 
 def save_tasks():
     """
-    Save tasks to the spreadsheet.
+    This function saves the current tasks list to the google sheet
     """
     print(f"Saving {len(tasks)} tasks to the file.")
     sheet = spreadsheet.sheet1
@@ -76,9 +76,8 @@ def save_tasks():
 
 def display_tasks():
     """
-    This function displays the tasks added by the user
-    to the to-do list. The due date and time is also displayed 
-    which shows the user the tasks in order of their priority.
+    This function prints the current list of task
+    to the console.
     """
     if not tasks:
         print("\U0001F4ED Your to-do list is empty.")
@@ -90,9 +89,10 @@ def display_tasks():
 
 def add_task():
     """
-    This function allows a user to add a task to the to-do list,
-    it also ensures that the due date and time is entered correctly
-    while ensuring that the due date cannot be in the past.
+    This function adds task to the list and saves it to the
+    google sheet and it also prompts the user for a task description,
+    due date and time. It validates the input and ensures 
+    that the due date is not in the past.
     """
     description = input("Enter task description: ").strip()
     if not description:
@@ -125,9 +125,10 @@ def add_task():
 
 def remove_task():
     """
-    Function to remove a task from the to-do list,
-    This function provides the user with a prompt
-    text to confirm if the task should be removed.
+    This function displays the current tasks and prompt
+    the user to select the one to remove. It also confirms 
+    task removal with the user and updates the google sheet
+    accordingly.
     """
     display_tasks()
     if tasks:
@@ -152,7 +153,8 @@ def remove_task():
 
 def verify_saved_tasks():
     """
-    Verify and print tasks saved in the spreadsheet.
+    This function reads and print tasks currently 
+    saved in the google sheet.
     """
     sheet = spreadsheet.sheet1
     rows = sheet.get_all_records()
@@ -164,7 +166,10 @@ def verify_saved_tasks():
 
 def main():
     """
-    Main function to run the to-do list application.
+    This function loads task from the google sheet,
+    display instructions and continuously prompts 
+    the user for menu options to manage tasks until
+    the user chooses to quit.
     """
     load_tasks()
     display_instructions()
