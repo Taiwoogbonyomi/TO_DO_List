@@ -15,7 +15,7 @@ SCOPE = [
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-spreadsheet = GSPREAD_CLIENT.open('To-Do List')
+SPREADSHEET = GSPREAD_CLIENT.open('To-Do List')
 
 
 # This is an empty list to store tasks locally
@@ -47,7 +47,7 @@ def load_tasks():
     """
     global tasks
     tasks = []
-    sheet = spreadsheet.sheet1
+    sheet = SPREADSHEET.sheet1
     rows = sheet.get_all_records()
     for row in rows:
         task = {
@@ -64,7 +64,7 @@ def save_tasks():
     This function saves the current tasks list to the google sheet
     """
     print(f"Saving {len(tasks)} tasks to the file.")
-    sheet = spreadsheet.sheet1
+    sheet = SPREADSHEET.sheet1
     sheet.clear()
     sheet.append_row(["Description", "Due Date", "Due Time"])
     for task in tasks:
@@ -156,7 +156,7 @@ def verify_saved_tasks():
     This function reads and print tasks currently 
     saved in the google sheet.
     """
-    sheet = spreadsheet.sheet1
+    sheet = SPREADSHEET.sheet1
     rows = sheet.get_all_records()
     print("Saved tasks in the file:")
     for row in rows:
