@@ -1,8 +1,8 @@
 # **TO-DO LIST APPLICATION**
 This is a simple command-line to-do list application that allows you to manage your tasks and store them in a Google Sheet using the gspread library. You can add, view, and remove tasks, with each task having a description, due date, and due time.
 
-[View live website here] (https://to-do-l-d6f945e0296e.herokuapp.com/)
-![To-Do List responsive design] <img src="assets/images/am-i-responsive.png" alt="Picture of the application across different devices">
+[View live website here](https://to-do-l-d6f945e0296e.herokuapp.com/)
+<img src="assets/images/am-i-responsive.png" alt="Picture of the application across different devices">
 
 
 # Table of Content
@@ -93,3 +93,13 @@ As a user, I want to quit the application so that I can close it when I'm done u
 Acceptance Criteria:
 * I can choose an option to quit the application.
 * The application exits cleanly without errors.
+
+## Site Owner's Goal
+The goal of the site owners for the To-Do List Application is to provide a robust, user-friendly platform that meets the needs of users while maintaining operational efficiency and scalability.
+
+[Back to top](<#table-of-content>)
+
+# **User Experience**
+## Flow Chart
+[Lucid App](https://lucid.app/) was used in creating the flow chart for this application, the flow chart was created prior to starting the project as this give an insight into what the project entails which made writing the code easy.
+<img src="assets/images/To-Do List App.png">
