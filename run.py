@@ -42,7 +42,7 @@ def display_instructions():
 
 def load_tasks():
     """
-    Load tasks from the spreadsheet.
+    This function load tasks from the spreadsheet.
     """
     global tasks
     tasks = []
@@ -90,8 +90,8 @@ def display_tasks():
 def add_task():
     """
     This function allows a user to add a task to the to-do list,
-    it also ensures that the due date and time is while ensuring 
-    that the due date cannot be in the past.
+    it also ensures that the due date and time is entered correctly
+    while ensuring that the due date cannot be in the past.
     """
     description = input("Enter task description: ").strip()
     if not description:
