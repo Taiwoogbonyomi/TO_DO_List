@@ -28,17 +28,16 @@ def display_instructions():
     function. 
 
     """
-    print("\U0001F4CB Welcome to the to-do list application \U0001F4CB")
-    print("""
-    ===== To-Do List Instructions =====
-    You can manage your tasks with the following options:
-    1. Display to-do list : View all tasks currently in the list.
-    2. Add a task : Enter a new task to add to your to-do list.
-    3. Remove a task : Choose a task by its index to remove from your list.
-    4. Verify saved tasks: Verify and print tasks saved on the to-do list.
-    5. Quit : Exit the application.
-    =====================================
-    """)
+    print("\U0001F4CB Welcome to the to-do list application\U0001F4CB")
+    print("===== To-Do List Instructions =====")
+    print("You can manage your tasks with the following options:")
+    print("1. Display to-do list : View all tasks currently in the list.")
+    print("2. Add a task : Enter a new task to add to your to-do list.")
+    print("3. Remove a task : Choose a task by its index to remove from your list.")
+    print("4. Verify saved tasks: Verify and print tasks saved on the to-do list.")
+    print("5. Quit : Exit the application.")
+    print("=====================================")
+    
 
 
 def load_tasks():
