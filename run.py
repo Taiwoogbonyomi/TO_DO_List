@@ -28,7 +28,12 @@ def display_instructions():
     function. 
 
     """
-    print("\U0001F4CB Welcome to the to-do list application\U0001F4CB")
+    
+    print("""
+    *********************************************
+    * \U0001F4CB Welcome to the to-do list application\U0001F4CB *
+    *********************************************
+    """)
     print("===== To-Do List Instructions =====")
     print("You can manage your tasks with the following options:")
     print("1. Display to-do list : View all tasks currently in the list.")
@@ -55,7 +60,7 @@ def load_tasks():
             "due_time": row["Due Time"]
         }
         tasks.append(task)
-    print(f"Loaded {len(tasks)} tasks from the file.")
+    print(f"Loaded {len(tasks)} tasks from the spreadsheet.")
 
 
 def save_tasks():
@@ -165,6 +170,7 @@ def main():
     """
     Main function to run the to-do list application.
     """
+    load_tasks()
     display_instructions()
 
     while True:
