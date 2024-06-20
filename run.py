@@ -57,6 +57,7 @@ def load_tasks():
         }
         tasks.append(task)
     print(f"Loaded {len(tasks)} tasks from the spreadsheet.")
+    print("...............................................\n")
 
 
 def save_tasks():
