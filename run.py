@@ -29,11 +29,7 @@ def display_instructions():
 
     """
     
-    print("""
-    *********************************************
-    * \U0001F4CB Welcome to the to-do list application\U0001F4CB *
-    *********************************************
-    """)
+    print("\U0001F4CB WELCOME TO THE TO-DO LIST APPLICATION\U0001F4CB")
     print("===== To-Do List Instructions =====")
     print("You can manage your tasks with the following options:")
     print("1. Display to-do list : View all tasks currently in the list.")
