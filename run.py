@@ -34,7 +34,7 @@ def display_instructions():
     You can manage your tasks with the following options:
     1. Display to-do list : View all tasks currently in the list.
     2. Add a task : Enter a new task to add to your to-do list.
-    3. Remove a task : Choose a task by its index to remove the task from your list.
+    3. Remove a task : Choose a task by its index to remove from your list.
     4. Verify saved tasks: Verify and print tasks saved on the to-do list.
     5. Quit : Exit the application.
     =====================================
@@ -167,7 +167,6 @@ def main():
     Main function to run the to-do list application.
     """
     display_instructions()
-    print("\U0001F4CB Welcome to the to-do list application \U0001F4CB")
 
     while True:
         print("\n === To-Do List Menu ===")
