@@ -69,7 +69,9 @@ def load_tasks():
             "due_time": row["Due Time"]
         }
         tasks.append(task)
-   
+    print(f"Loaded {len(tasks)} tasks from the spreadsheet.")
+    print("...............................................\n")
+
 
 def save_tasks():
     """
@@ -213,7 +215,6 @@ def main():
     the user for menu options to manage tasks until
     the user chooses to quit.
     """
-    load_tasks()
     display_instructions()
 
     while True:
