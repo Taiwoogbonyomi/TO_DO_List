@@ -108,3 +108,53 @@ The goal of the site owners for the To-Do List Application is to provide a robus
 </details><br/>
 
 [Back to top](<#table-of-content>)
+
+## Data Model
+To store all the tasks in the application, I used a [Google Sheet](https://www.google.com/sheets/about/). All the tasks inputed into the application are stored in the google sheet and can also be retrieved from the google sheet.
+
+Each task in the to-do list has the following attributes:
+* Description: A brief text describing the task.
+* Due Date: The date by which the task is to be completed (in YYYY-MM-DD format).
+* Due Time: The time by which the task is to be completed (in HH:MM format).
+
+These attributes are represented in the Google Sheet and locally within the application.
+
+<details><summary><b>Google Sheet</b></summary>
+
+![Google Sheet]<img src="assets/readme/images/google-sheet.png">
+
+The view only version of the google sheet can be viewed [here](https://docs.google.com/spreadsheets/d/1RTZ_kWXGWAtH2YPAVOANknrq1FwICjXvHEyGpnd7_HU/edit?gid=2026798872#gid=2026798872)
+
+</details><br/>
+
+[Back to top](<#table-of-content>)
+
+### Typography
+To ensure the readability and usability of the To-Do List application, the following typography guidelines can be adopted.
+* Font: Monospaced (default terminal font)
+* Style: ASCII Art for logo, bold text for headings
+* Color: Default terminal color (often white on black)
+
+[Back to top](<#table-of-content>)
+
+## Features
+### Welcome Screen and Instructions
+- When the application starts, it diplays an ASCII art banner informing the users of what the application is, followed by the list of detailed instructions. 
+
+<details><summary><b>Welcome Screen</b></summary>
+
+<img src="assets/readme/images/welcome-screen.png">
+</details><br/>
+
+
+### Menu List
+- The menu list option guides the users on how to use the application. It consists of 5 choices
+
+<details><summary><b>Menu List</b></summary>
+
+<img src="assets/readme/images/menu-list.png">
+</details><br/>
+
+### Load Task
+- Loads tasks from a Google Sheet into the local application.
+- Ensures that tasks are up-to-date and synchronized between the local list and the Google Sheet.

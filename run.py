@@ -131,7 +131,7 @@ def add_task():
                 due_date, "%Y-%m-%d"
                 ).date()
             due_time_obj = datetime.datetime.strptime(due_time, "%H:%M").time()
-            # Check if the due date is not in the past
+            # Checks if the due date is not in the past
             if (due_date_obj < datetime.date.today() or
                (due_date_obj == datetime.date.today() and
                due_time_obj < datetime.datetime.now().time())):
