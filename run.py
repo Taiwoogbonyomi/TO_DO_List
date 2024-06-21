@@ -21,21 +21,21 @@ spreadsheet = GSPREAD_CLIENT.open('To-Do List')
 # This is an empty list to store tasks locally
 tasks = []
 
+
 def welcome_screen():
     """
     Displays the welcome screen.
     """
-    # Logo
-    print(r''' 
-    ++++++++++++++++++++++++++++++++++++++++++++++++++
-     _____ ___        ____   ___    _     ___ ____ _____ 
+    # ASCII art logo generated using
+    # https://patorjk.com/software/taag/#p=display&h=3&v=3&f=Standard&t=TO-DO%20LIST
+    print(r'''      
+  _____ ___        ____   ___    _     ___ ____ _____
  |_   _/ _ \      |  _ \ / _ \  | |   |_ _/ ___|_   _|
-   | || | | |_____| | | | | | | | |    | |\___ \ | |  
-   | || |_| |_____| |_| | |_| | | |___ | | ___) || |  
-   |_| \___/      |____/ \___/  |_____|___|____/ |_|  
-
-    ++++++++++++++++++++++++++++++++++++++++++++++++++                                                  
+   | || | | |_____| | | | | | | | |    | |\___ \ | |
+   | || |_| |_____| |_| | |_| | | |___ | | ___) || |
+   |_| \___/      |____/ \___/  |_____|___|____/ |_|                                                 
     ''')
+
 
 def display_instructions():
     """
@@ -100,8 +100,9 @@ def display_tasks():
     else:
         print("\U0001F4CB Your To-Do List:")
         for index, task in enumerate(tasks, start=1):
-            print(f"{index}. {task['description']} - "
-            f"Due:{task['due_date']} {task['due_time']}"
+            print(
+                f"{index}. {task['description']} - "
+                f"Due:{task['due_date']} {task['due_time']}"
             )
 
 
