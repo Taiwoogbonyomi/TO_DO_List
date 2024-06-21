@@ -98,20 +98,28 @@ def add_task():
     """
     description = input("Enter task description: ").strip()
     if not description:
-        print("\U0000274C Task description cannot be empty.\
-            Please enter a valid description.")
+        print(
+            "\U0000274C Task description cannot be empty."
+            " Please enter a valid description."
+        )
         return
 
     while True:
         due_date = input("Enter due date (YYYY-MM-DD): ")
         due_time = input("Enter due time (HH:MM): ")
         try:
-            due_date_obj = \
-                datetime.datetime.strptime(due_date, "%Y-%m-%d").date()
+            due_date_obj = datetime.datetime.strptime(
+                due_date, "%Y-%m-%d"
+                ).date()
             due_time_obj = datetime.datetime.strptime(due_time, "%H:%M").time()
-            if due_date_obj < datetime.date.today():
-                print("\U0000274C Due date cannot be in the past.\
-                    Please enter a valid date.")
+            # Check if the due date is not in the past
+            if (due_date_obj < datetime.date.today() or
+               (due_date_obj == datetime.date.today() and
+               due_time_obj < datetime.datetime.now().time())):
+                print(
+                    "\U0000274C Due date and time cannot be in the past. "
+                    "Please enter a valid date and time."
+                )
                 continue
             break
         except ValueError:
@@ -141,12 +149,17 @@ def remove_task():
             index = int(input("Enter the number of the task to remove: ")) - 1
             if 0 <= index < len(tasks):
                 removed_task = tasks[index]
-                confirm = input(f"Are you sure you want to remove the task \
-                '{removed_task['description']}'? (yes/no): ").lower()
+                confirm = input(
+                    f"Are you sure you want to remove the task' "
+                    f"{removed_task['description']}'? "
+                    "(yes/no): "
+                    ).lower()
                 if confirm == 'yes':
                     tasks.pop(index)
-                    print(f"\U0001F4ED Task \
-                    '{removed_task['description']}'removed successfully.")
+                    print(
+                        f"\U0001F4ED Task'{removed_task['description']}' "
+                        "removed successfully."
+                    )
                     save_tasks()
                 else:
                     print("\U0000274C Task removal cancelled.")
@@ -170,8 +183,11 @@ def verify_saved_tasks():
             return
         print("Saved tasks in the file:")
         for row in rows:
-            print(f"Description: {row['Description']} \
-            Due Date: {row['Due Date']}, Due Time: {row['Due Time']}")
+            print(
+                f"Description: {row['Description']} "
+                f"Due Date: {row['Due Date']}, "
+                f"Due Time: {row['Due Time']}"
+            )
     except Exception as e:
         print(f"Error verifying saved tasks: {e}")
 
@@ -211,8 +227,10 @@ def main():
             print("Goodbye \U0001F44B \U0001F44B")
             break
         else:
-            print("\U0000274C Invalid choice,\
-            please enter a number from 1 to 5.")
+            print(
+                "\U0000274C Invalid choice,"
+                " please enter a number from 1 to 5."
+            )
 
 # Run the main function to start the application
 
