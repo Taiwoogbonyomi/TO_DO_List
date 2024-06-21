@@ -85,8 +85,9 @@ def display_tasks():
     else:
         print("\U0001F4CB Your To-Do List:")
         for index, task in enumerate(tasks, start=1):
-            print(f"{index}. {task['description']} -\
-            Due:{task['due_date']} {task['due_time']}")
+            print(f"{index}. {task['description']} - "
+            f"Due:{task['due_date']} {task['due_time']}"
+            )
 
 
 def add_task():
@@ -150,7 +151,7 @@ def remove_task():
             if 0 <= index < len(tasks):
                 removed_task = tasks[index]
                 confirm = input(
-                    f"Are you sure you want to remove the task' "
+                    f"Are you sure you want to remove the task'"
                     f"{removed_task['description']}'? "
                     "(yes/no): "
                     ).lower()
