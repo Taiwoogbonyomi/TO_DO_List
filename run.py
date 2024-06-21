@@ -28,13 +28,15 @@ def welcome_screen():
     """
     # ASCII art logo generated using
     # https://patorjk.com/software/taag/#p=display&h=3&v=3&f=Standard&t=TO-DO%20LIST
-    print(r'''      
+    print(r'''
+    ================================================
   _____ ___        ____   ___    _     ___ ____ _____
  |_   _/ _ \      |  _ \ / _ \  | |   |_ _/ ___|_   _|
    | || | | |_____| | | | | | | | |    | |\___ \ | |
    | || |_| |_____| |_| | |_| | | |___ | | ___) || |
-   |_| \___/      |____/ \___/  |_____|___|____/ |_|                                                 
-    ''')
+   |_| \___/      |____/ \___/  |_____|___|____/ |_|
+    ================================================
+   ''')
 
 
 def display_instructions():
@@ -216,6 +218,7 @@ def main():
     the user for menu options to manage tasks until
     the user chooses to quit.
     """
+    load_tasks()
     display_instructions()
 
     while True:
