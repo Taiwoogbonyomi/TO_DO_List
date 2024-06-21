@@ -158,3 +158,108 @@ To ensure the readability and usability of the To-Do List application, the follo
 ### Load Task
 - Loads tasks from a Google Sheet into the local application.
 - Ensures that tasks are up-to-date and synchronized between the local list and the Google Sheet.
+
+<details><summary><b>Load Task</b></summary>
+
+<img src="assets/readme/images/load-task.png">
+</details><br/>
+
+### Display To-Do List
+- Lists all tasks currently in the to-do list.
+- Displays task details including description, due date, and due time.
+
+### Add Task
+- Allows users to add a new task to the to-do list.
+- Prompts for task description, due date, and due time.
+- Validates the input to ensure the due date and time are not in the past.
+- Error messages inform users of incorrect inputs.
+- Saves the new task to the Google Sheet.
+
+<details><summary><b>Add Task</b></summary>
+
+<img src="assets/readme/images/add-task.png">
+</details><br/>
+
+### Remove Task
+- Enables users to remove a task by selecting its index from the list.
+- Confirms task removal to prevent accidental deletions.
+- Updates the Google Sheet to reflect the removal.
+
+
+<details><summary><b>Remove Task</b></summary>
+
+<img src="assets/readme/images/remove-task.png">
+</details><br/>
+
+### Verify Saved Task
+- Reads and prints tasks currently saved in the Google Sheet.
+- Provides a way to verify that tasks are correctly saved and synchronized.
+
+<details><summary><b>Verify Saved Task</b></summary>
+
+<img src="assets/readme/images/verify-saved-task.png">
+</details><br/>
+
+### Quit Application
+- The quit application choice signifies the end of the program.
+
+<details><summary><b>Quit Application</b></summary>
+
+<img src="assets/readme/images/quit-application.png">
+</details><br/>
+
+### Future Features
+
+#### Task priortization
+
+* Allow users to assign priority levels (e.g., high, medium, low) to tasks.
+* Display tasks sorted by priority to help users focus on the most important tasks first.
+
+#### Task Categories
+
+* Enable users to categorize tasks (e.g., work, personal, urgent).
+* Filter and display tasks based on selected categories.
+
+#### Search and Filter Task
+
+* Implement a search feature to find tasks by keywords in the description.
+* Add filtering options to view tasks by due date, due time, or priority
+
+#### Task Completion and Progress Tracking
+
+* Add the ability for users to mark tasks as complete.
+* Track and display the percentage of completed tasks.
+* Option to archive completed tasks for future reference.
+
+#### Notifications and Reminders
+
+* Implement email or SMS notifications to remind users of upcoming due dates and times.
+* Provide in-app reminders and alerts for tasks nearing their due time.
+
+## Technologies Used
+
+### Languages
+
+- [Python3](https://en.wikipedia.org/wiki/Python_(programming_language)). This provides functionality for the application.
+
+Provided as part of Code Institute's [Python Essentials Template](https://github.com/Code-Institute-Org/python-essentials-template): 
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [Javascript](https://en.wikipedia.org/wiki/JavaScript)
+
+## Frameworks, Libraries & Software
+- [Datetime](https://docs.python.org/3/library/datetime.html) - used to validate date and time inputs.
+- [Google Cloud](https://cloud.google.com/) - used to generate the APIs required to connect the spreadsheets with the Python code.
+- [GSpread](https://docs.gspread.org/en/v6.0.0/) - used to interact with the data in the linked sheet and used to store user input data.
+- [GitHub](https://github.com/) - used to host and store and edit the project.
+- [GitPod](https://gitpod.io/) - used for writing code.
+- [GitBash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) - Terminal in [Gitpod](https://www.gitpod.io) used to push changes to the GitHub repository. 
+- [Heroku](https://dashboard.heroku.com/login) - used to host and deploy the finished project.
+- [Lucidchart](https://www.lucidchart.com/pages/) - used to create the flowchart during project planning.
+- [PEP8 online check](http://pep8online.com/) was used to validate the Python code.
+
+
+
+
+
+
+
