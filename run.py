@@ -21,23 +21,21 @@ SPREADSHEET = GSPREAD_CLIENT.open('To-Do List')
 # This is an empty list to store tasks locally
 tasks = []
 
+
 def display_instructions():
     """
-    Function to print out the instructions and 
+    Function to print out the instructions and
     menu options for the user
-
     """
-    
     print("\U0001F4CB WELCOME TO THE TO-DO LIST APPLICATION\U0001F4CB")
     print("===== To-Do List Instructions =====")
     print("You can manage your tasks with the following options:")
     print("1. Display to-do list : View all tasks currently in the list.")
     print("2. Add a task : Enter a new task to add to your to-do list.")
-    print("3. Remove a task : Choose a task by its index to remove from your list.")
-    print("4. Verify saved tasks: Verify and print tasks saved on the to-do list.")
+    print("3. Remove a task : Choose a task by its index to remove from list.")
+    print("4. Verify saved tasks: Verify and print tasks saved on the list.")
     print("5. Quit : Exit the application.")
     print("=====================================")
-    
 
 
 def load_tasks():
@@ -69,10 +67,9 @@ def save_tasks():
     sheet.clear()
     sheet.append_row(["Description", "Due Date", "Due Time"])
     for task in tasks:
-        sheet.append_row([task["description"], task["due_date"], task["due_time"]])
+        sheet.append_row
+        ([task["description"], task["due_date"], task["due_time"]])
     print("Tasks saved successfully.")
-
-
 
 
 def display_tasks():
@@ -85,29 +82,33 @@ def display_tasks():
     else:
         print("\U0001F4CB Your To-Do List:")
         for index, task in enumerate(tasks, start=1):
-            print(f"{index}. {task['description']} - Due: {task['due_date']} {task['due_time']}")
+            print(f"{index}. {task['description']} -\
+            Due: {task['due_date']} {task['due_time']}")
 
 
 def add_task():
     """
     This function adds task to the list and saves it to the
     google sheet and it also prompts the user for a task description,
-    due date and time. It validates the input and ensures 
+    due date and time. It validates the input and ensures
     that the due date is not in the past.
     """
     description = input("Enter task description: ").strip()
     if not description:
-        print("\U0000274C Task description cannot be empty. Please enter a valid description.")
+        print("\U0000274C Task description cannot be empty.\
+        Please enter a valid description.")
         return
 
     while True:
         due_date = input("Enter due date (YYYY-MM-DD): ")
         due_time = input("Enter due time (HH:MM): ")
         try:
-            due_date_obj = datetime.datetime.strptime(due_date, "%Y-%m-%d").date()
+            due_date_obj = datetime.datetime.strptime
+            (due_date, "%Y-%m-%d").date(),
             due_time_obj = datetime.datetime.strptime(due_time, "%H:%M").time()
             if due_date_obj < datetime.date.today():
-                print("\U0000274C Due date cannot be in the past. Please enter a valid date.")
+                print("\U0000274C Due date cannot be in the past.\
+                Please enter a valid date.")
                 continue
             break
         except ValueError:
@@ -127,7 +128,7 @@ def add_task():
 def remove_task():
     """
     This function displays the current tasks and prompt
-    the user to select the one to remove. It also confirms 
+    the user to select the one to remove. It also confirms
     task removal with the user and updates the google sheet
     accordingly.
     """
@@ -137,10 +138,12 @@ def remove_task():
             index = int(input("Enter the number of the task to remove: ")) - 1
             if 0 <= index < len(tasks):
                 removed_task = tasks[index]
-                confirm = input(f"Are you sure you want to remove the task '{removed_task['description']}'? (yes/no): ").lower()
+                confirm = input(f"Are you sure you want to remove the task\
+                '{removed_task['description']}'? (yes/no): ").lower()
                 if confirm == 'yes':
                     tasks.pop(index)
-                    print(f"\U0001F4ED Task '{removed_task['description']}' removed successfully.")
+                    print(f"\U0001F4ED Task '{removed_task['description']}'\
+                    removed successfully.")
                     save_tasks()
                 else:
                     print("\U0000274C Task removal cancelled.")
@@ -154,21 +157,21 @@ def remove_task():
 
 def verify_saved_tasks():
     """
-    This function reads and print tasks currently 
+    This function reads and print tasks currently
     saved in the google sheet.
     """
     sheet = SPREADSHEET.sheet1
     rows = sheet.get_all_records()
     print("Saved tasks in the file:")
     for row in rows:
-        print(f"Description: {row['Description']}, Due Date: {row['Due Date']}, Due Time: {row['Due Time']}")
-
+        print(f"Description: {row['Description']}, Due Date:\
+        {row['Due Date']}, Due Time: {row['Due Time']}")
 
 
 def main():
     """
     This function loads task from the google sheet,
-    display instructions and continuously prompts 
+    display instructions and continuously prompts
     the user for menu options to manage tasks until
     the user chooses to quit.
     """
@@ -200,8 +203,11 @@ def main():
             print("Goodbye \U0001F44B \U0001F44B")
             break
         else:
-            print("\U0000274C Invalid choice, please enter a number from 1 to 5.")
+            print("\U0000274C Invalid choice,\
+            please enter a number from 1 to 5.")
 
 # Run the main function to start the application
+
+
 if __name__ == "__main__":
     main()
