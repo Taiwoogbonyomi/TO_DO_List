@@ -103,8 +103,8 @@ def add_task():
         due_date = input("Enter due date (YYYY-MM-DD): ")
         due_time = input("Enter due time (HH:MM): ")
         try:
-            due_date_obj = datetime.datetime.strptime
-            (due_date, "%Y-%m-%d").date(),
+            due_date_obj = datetime.datetime.strptime(due_date, "%Y-%m-%d")\
+            .date()
             due_time_obj = datetime.datetime.strptime(due_time, "%H:%M").time()
             if due_date_obj < datetime.date.today():
                 print("\U0000274C Due date cannot be in the past.\
