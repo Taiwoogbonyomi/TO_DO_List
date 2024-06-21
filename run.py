@@ -21,6 +21,21 @@ spreadsheet = GSPREAD_CLIENT.open('To-Do List')
 # This is an empty list to store tasks locally
 tasks = []
 
+def welcome_screen():
+    """
+    Displays the welcome screen.
+    """
+    # Logo
+    print(r''' 
+    ++++++++++++++++++++++++++++++++++++++++++++++++++
+     _____ ___        ____   ___    _     ___ ____ _____ 
+ |_   _/ _ \      |  _ \ / _ \  | |   |_ _/ ___|_   _|
+   | || | | |_____| | | | | | | | |    | |\___ \ | |  
+   | || |_| |_____| |_| | |_| | | |___ | | ___) || |  
+   |_| \___/      |____/ \___/  |_____|___|____/ |_|  
+
+    ++++++++++++++++++++++++++++++++++++++++++++++++++                                                  
+    ''')
 
 def display_instructions():
     """
@@ -237,4 +252,5 @@ def main():
 
 
 if __name__ == "__main__":
+    welcome_screen()
     main()
