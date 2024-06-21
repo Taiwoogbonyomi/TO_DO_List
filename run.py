@@ -69,9 +69,7 @@ def load_tasks():
             "due_time": row["Due Time"]
         }
         tasks.append(task)
-    print(f"Loaded {len(tasks)} tasks from the spreadsheet.")
-    print("...............................................\n")
-
+   
 
 def save_tasks():
     """
