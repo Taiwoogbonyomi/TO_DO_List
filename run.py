@@ -85,8 +85,8 @@ def display_tasks():
     else:
         print("\U0001F4CB Your To-Do List:")
         for index, task in enumerate(tasks, start=1):
-            print(f"{index}. {task['description']} - \
-                Due:{task['due_date']} {task['due_time']}")
+            print(f"{index}. {task['description']} -\
+            Due:{task['due_date']} {task['due_time']}")
 
 
 def add_task():
@@ -170,7 +170,7 @@ def verify_saved_tasks():
             return
         print("Saved tasks in the file:")
         for row in rows:
-            print(f"Description: {row['Description']}, \
+            print(f"Description: {row['Description']} \
             Due Date: {row['Due Date']}, Due Time: {row['Due Time']}")
     except Exception as e:
         print(f"Error verifying saved tasks: {e}")
