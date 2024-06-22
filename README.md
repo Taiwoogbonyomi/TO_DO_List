@@ -320,6 +320,7 @@ The following browsers was used to test for appearance and functionality issues,
 
 
 ## Deployment
+This project was deployed using Heroku.
 
 ### Google Sheet
 
