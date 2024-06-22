@@ -25,20 +25,20 @@ Visit the deployed application [here](https://to-do-l-d6f945e0296e.herokuapp.com
 ## Features
 * [Welcome Screen and Instructions](#welcome-screen-and-instructions)
 * [Display To-Do List](#display-to-do-list)
-* [Add a Task](#add-a-task)
-* [Remove a Task](#remove-a-task)
+* [Add Task](#add-task)
+* [Remove Task](#remove-task)
 * [Verify Saved Tasks](#verify-saved-task)
-* [Load and Save Tasks](#load-and-save-tasks)
+* [Load Task](#load-tasks)
+* [Quit Application](#quit-application)
 
 * [**Technologies Used**](<#technologies-used>)
     * [Languages](<#languages>)
     * [Frameworks, Librarys & Software](<#frameworks-libraries--software>)
-    * [Python Packages](<#python-packages>)
 
 * [**Testing**](<#testing>)
   * [Code Validation](<#code-validation>)
-  * [Additional Testing](<#additional-testing>)
-  * [Known Bugs](<#known-bugs>)
+  * [Testing](<#testing>)
+  * [Bugs](<#bugs>)
 * [Deployment](<#deployment>)
 * [Credits](<#credits>)
 * [Acknowledgements](<#acknowledgements>)
@@ -100,7 +100,7 @@ The goal of the site owners for the To-Do List Application is to provide a robus
 
 # **User Experience**
 ## Flow Chart
-[Lucid App](https://lucid.app/) was used in creating the flow chart for this application, the flow chart was created prior to starting the project as this give an insight into what the project entails which made writing the code easy.
+[Lucid App](https://lucid.app/) was used in creating the flow chart for this application, the flow chart was created prior to starting the project as this gave an insight into what the project entails which made writing the code easy. It also provide the user with an idea of how the application runs.
 
 <details><summary><b>Flow Chart</b></summary>
 
@@ -146,6 +146,8 @@ To ensure the readability and usability of the To-Do List application, the follo
 <img src="assets/readme/images/welcome-screen.png">
 </details><br/>
 
+[Back to top](<#table-of-content>)
+
 
 ### Menu List
 - The menu list option guides the users on how to use the application. It consists of 5 choices
@@ -154,6 +156,7 @@ To ensure the readability and usability of the To-Do List application, the follo
 
 <img src="assets/readme/images/menu-list.png">
 </details><br/>
+
 
 ### Load Task
 - Loads tasks from a Google Sheet into the local application.
@@ -167,6 +170,11 @@ To ensure the readability and usability of the To-Do List application, the follo
 ### Display To-Do List
 - Lists all tasks currently in the to-do list.
 - Displays task details including description, due date, and due time.
+
+<details><summary><b>Display To-Do List</b></summary>
+
+<img src="assets/readme/images/display-list.png">
+</details><br/>
 
 ### Add Task
 - Allows users to add a new task to the to-do list.
@@ -208,6 +216,8 @@ To ensure the readability and usability of the To-Do List application, the follo
 <img src="assets/readme/images/quit-application.png">
 </details><br/>
 
+[Back to top](<#table-of-content>)
+
 ### Future Features
 
 #### Task priortization
@@ -236,15 +246,19 @@ To ensure the readability and usability of the To-Do List application, the follo
 * Implement email or SMS notifications to remind users of upcoming due dates and times.
 * Provide in-app reminders and alerts for tasks nearing their due time.
 
+[Back to top](<#table-of-content>)
+
 ## Technologies Used
 
 ### Languages
 
 - [Python3](https://en.wikipedia.org/wiki/Python_(programming_language)). This provides functionality for the application.
-
-Provided as part of Code Institute's [Python Essentials Template](https://github.com/Code-Institute-Org/python-essentials-template): 
+- Code Institute's [Python Essentials Template](https://github.com/Code-Institute-Org/python-essentials-template) 
 - [HTML5](https://en.wikipedia.org/wiki/HTML5)
 - [Javascript](https://en.wikipedia.org/wiki/JavaScript)
+
+[Back to top](<#table-of-content>)
+
 
 ## Frameworks, Libraries & Software
 - [Datetime](https://docs.python.org/3/library/datetime.html) - used to validate date and time inputs.
@@ -256,6 +270,122 @@ Provided as part of Code Institute's [Python Essentials Template](https://github
 - [Heroku](https://dashboard.heroku.com/login) - used to host and deploy the finished project.
 - [Lucidchart](https://www.lucidchart.com/pages/) - used to create the flowchart during project planning.
 - [PEP8 online check](http://pep8online.com/) was used to validate the Python code.
+
+[Back to top](<#table-of-content>)
+
+# Testing
+## Code Validation
+[Pep8 Linter](https://pep8ci.herokuapp.com/#) was used to validate the python code and no error was returned in the final testing.
+
+<details><summary><b>PEP Validation Result</b></summary>
+
+<img src="assets/readme/images/PEP8-Validation.png">
+</details><br/>
+
+*.Html* and *.Javascript* were provided by the Code Institute through [Python Essentials Template](https://github.com/Code-Institute-Org/python-essentials-template).
+
+[Back to top](<#table-of-content>)
+
+### Browser Compatibility
+The following browsers was used to test for appearance and functionality issues, only Safari has functionality issues as no user input is recognized on Safari.
+
+* Google Chrome 
+* Mozilla Firefox 
+* Microsoft Edge 
+* Safari - Functionality Issues
+* Opera
+
+[Back to top](<#table-of-content>)
+
+
+### Bugs
+- My mentor found a bug in the add task function. The bug made it possible for the user to input empty strings (which means that empty cells/rows was saved to the Google Sheet), The bug was fixed by changing the function and adding a validation to check for empty inputs.
+- During a session with my mentor, he found out that dates from the past can be added to the task by the user. This bug was fixed by updating the function to only allow for current and future dates to be added to the to-do list.
+- While validating my codes on PEP8 Linter, There were error alerts regarding the 79 character limits, I used the backslash to split the lines of code but it ended up creating unusal spacing so I resolved this error by splitting the input statements across multiple lines while ensuring that they are not more than 79 characters. 
+- Instructions were not aligning to the left of the screen which made the program look disorganized, I resolved this by adding a print statement to each instruction message.
+
+[Back to top](<#table-of-content>)
+
+
+### Accessibility
+
+[Lighthouse](https://developer.chrome.com/docs/lighthouse/overview) in [Chrome DevTools](https://developer.chrome.com/docs/devtools/) was used to measure the quality of the page, focusing on performance, accessibility, best practices, and SEO scores.
+
+<details><summary><b>Lighthouse Report</b></summary>
+
+<img src="assets/readme/images/lighthouse-report.png">
+</details><br/>
+
+[Back to top](<#table-of-content>)
+
+
+## Deployment
+
+### Google Sheet
+
+- Google Sheets API and Google Drive API have to be used for this project; these could be accessed via [Google Cloud Platform] (https://cloud.google.com).
+- The Google Drive API was used to build a credentials file, which was then added to the workspace.
+- The credentials file was placed to *gitignore* in order to prevent sensitive data from being pushed to the repository.
+- To grant access, the client_email address from the credentials file was added to Google Sheets as an editor.
+- The *run.py* file's header contained definitions for the variables and the scope of access to the worksheet.
+- The OAuth and GSpread packages were installed using the terminal.
+
+[Back to top](<#table-of-content>)
+
+### Deployment to Heroku
+
+1. Update your *requirements.txt* file
+    - Run pip3 freeze > requirements.txt' in the terminal to add a list of dependencies to *requirements.txt*.
+    - Commit and push the changes to Github.
+2. Log in to Heroku or (Create new account if required) and from the top right corner of the dashboard, click *Create New App*.
+    - Enter an app name and choose your region.
+    Click *Create App*.
+3. Go to *Settings* and update the *ConfigVars*.
+    - Click *Reveal ConfigVars* and add the following information:
+        - KEY = 'CREDS', VALUE = Copy and paste the entire contents of the creds.json file into this field.
+        - KEY = 'PORT', VALUE = '8000'.
+    - Click *Add* after entering each *ConfigVar*.
+4. Within *Settings*, update the *Buildpacks*.
+    - Click *Add Buildpack* and add the following buildpacks:
+        - Add *Python* and click *Add Buildpack*.
+        - Add *NodeJS* and click *Add Buildpack*.
+        - Make sure the Python buildpack is above the NodeJS buildpack.
+5. Go to *Deploy* and specify deployment details.
+    - Select *GitHub* as the *Deployment Method*.
+        - When prompted to *Connect to GitHub*, find your repository and click *Connect*.
+    - Select either *Automatic Deploys* or *Manual Deploys* and click *Deploy Branch*.
+6. Once deployment has been completed, click *View* to view the deployed project. 
+ 
+[Back to top](<#table-of-content>)
+
+
+## Create A Local Clone of A Project
+
+To create a local clone of your repository, follow these steps:
+
+1. When you are in the repository, find the code tab and click it.
+2. To the left of the green GitPod button, press the 'code' menu. There you will find a link to the repository. Click on the clipboard icon to copy the URL.
+3. Use an IDE and open Git Bash. Change directory to the location where you want the cloned directory to be made.
+4. Type 'git clone', and then paste the URL that you copied from GitHub. Press enter and a local clone will be created.
+
+[Back to top](<#table-of-content>)
+
+
+# Credit
+
+## Content
+- All content was written by the developer.
+- The ASCII art To-Do List logo was generated using [patorjk.com](https://patorjk.com/software/taag/#p=display&h=3&v=3&f=Standard&t=TO-DO%20LIST).
+- The unicode emoji was used to add decorative emojis to my application [Unicode](https://unicode.org/emoji/charts/full-emoji-list.html#1f4e9).
+- The idea for setting up the gspread for this project was gotten from the Love Sandwiches code along video.
+
+[Back to top](<#table-of-content>)
+
+## Acknowledgements
+
+I will like to thank my mentor Precious Ijege for his suggestions and feedback during this project.
+I will also like to thank the staff and students on the slack platform for their contributions and prompt responses to my challenges.
+
 
 
 
